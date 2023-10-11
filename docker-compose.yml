@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  dex_1:
+    build: .
+    command: bash -c "cd app/ && sleep 600"
+    environment:
+      - DEBUG=1
+    volumes:
+      - ./:/app
+    networks:
+      - main_network
+  
+  dex_2:
+    build: .
+    command: bash -c "cd app/ && sleep 600"
+    environment:
+      - DEBUG=2
+    volumes:
+      - ./:/app
+    networks:
+      - main_network
+
+
+networks:
+  main_network:
