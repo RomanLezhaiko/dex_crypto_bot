@@ -3,7 +3,7 @@ version: '3.7'
 services:
   dex_1:
     build: .
-    command: bash -c "cd app/ && sleep 600"
+    command: bash -c "cd app/ && python3 test.py && sleep 600"
     environment:
       - DEBUG=1
     volumes:
@@ -13,7 +13,7 @@ services:
   
   dex_2:
     build: .
-    command: bash -c "cd app/ && sleep 600"
+    command: bash -c "cd app/ && python3 test.py && sleep 600"
     environment:
       - DEBUG=2
     volumes:

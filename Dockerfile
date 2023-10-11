@@ -1,11 +1,9 @@
-FROM python:3.11-slim
+FROM python:3.11.6-alpine3.18
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-RUN apt update && apt install \
-    build-essential postgresql-client libpq-dev python3-dev -y
-
+RUN apk update && apk add bash 
 
 COPY ./requirements.txt ./requirements.txt
 
