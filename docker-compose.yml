@@ -7,6 +7,7 @@ services:
     environment:
       - DEBUG=1
       - FACTORY_ADDRESS=0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73
+      - ROUTER_ADDRESS=0x10ED43C718714eb63d5aA57B78B54704E256024E
     volumes:
       - ./:/app
     networks:
@@ -18,6 +19,7 @@ services:
     environment:
       - DEBUG=2
       - FACTORY_ADDRESS=0x858E3312ed3A876947EA49d572A7C42DE08af7EE
+      - ROUTER_ADDRESS=0x3a6d8cA21D1CF76F653A67577FA0D27453350dD8
     volumes:
       - ./:/app
     networks:
