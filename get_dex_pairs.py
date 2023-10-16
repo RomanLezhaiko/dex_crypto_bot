@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 from web3 import Web3
 import requests
 
+from db import Session
+from models import Pair
+
 
 load_dotenv()
 
@@ -53,4 +56,8 @@ for i in range(100):
         time.sleep(1)
     
     print(' / '.join(token_name_list))
+    with Session() as session:
+        pair = Pair(token_name_1=token_name_list[0], token_name_2=token_name_list[1])
+        session.add(pair)
+        session.commit()
                 
