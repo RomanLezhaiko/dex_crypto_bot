@@ -8,7 +8,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 SQLALCHEMY_DATABASE_URI = f"sqlite:///{os.path.join(basedir, 'storage.db')}?check_same_thread=False"
 
-engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
+engine = create_engine(SQLALCHEMY_DATABASE_URI)
 # sql_meta = MetaData(engine)
 Session = scoped_session(
     sessionmaker(autocommit=False,

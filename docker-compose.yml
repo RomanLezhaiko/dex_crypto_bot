@@ -4,6 +4,7 @@ services:
   pancake:
     build: .
     command: bash -c "cd app/ && python3 init_db.py && python3 get_dex_pairs.py"
+    restart: always
     environment:
       - DEBUG=1
       - FACTORY_ADDRESS=0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73
@@ -16,6 +17,7 @@ services:
   biswap:
     build: .
     command: bash -c "cd app/ && python3 init_db.py && python3 get_dex_pairs.py"
+    restart: always
     environment:
       - DEBUG=2
       - FACTORY_ADDRESS=0x858E3312ed3A876947EA49d572A7C42DE08af7EE
