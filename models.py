@@ -29,7 +29,7 @@ class Token(Base):
     __tablename__ = f'token_{debug}'
 
     id = Column(Integer, primary_key=True)
-    token_name = Column(String(10))
+    token_name = Column(String(20))
     token_address = Column(String(50))
     token_position = Column(Integer)
     

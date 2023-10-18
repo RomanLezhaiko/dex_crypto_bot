@@ -26,6 +26,19 @@ services:
       - ./:/app
     networks:
       - main_network
+  
+  apeswap:
+    build: .
+    command: bash -c "cd app/ && python3 init_db.py && python3 get_dex_pairs.py"
+    restart: always
+    environment:
+      - DEBUG=3
+      - FACTORY_ADDRESS=0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6
+      - ROUTER_ADDRESS=0xcF0feBd3f17CEf5b47b0cD257aCf6025c5BFf3b7
+    volumes:
+      - ./:/app
+    networks:
+      - main_network
 
 
 networks:

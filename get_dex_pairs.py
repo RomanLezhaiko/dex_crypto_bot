@@ -37,8 +37,10 @@ try:
 except AttributeError:
     number = 0
 
+pairs_length = factory_contract.functions.allPairsLength().call()
+print(pairs_length)
 
-for i in range(number, 100):
+for i in range(number, pairs_length):
     pair_address = factory_contract.functions.allPairs(i).call()
     url = f'https://api.bscscan.com/api?module=contract&action=getabi&address={pair_address}&apikey={api_key_bsc_scan}'
     response = requests.get(url)
@@ -56,6 +58,7 @@ for i in range(number, 100):
     session = Session()
     pair = Pair(pair_address=pair_address, pair_abi=pair_abi, pair_number=i)
     session.add(pair)
+    session.flush()
     print(pair.id)
     time.sleep(1)
 
