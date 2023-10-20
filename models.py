@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text
 from sqlalchemy.orm import relationship
 
 from db import Base
@@ -15,7 +15,7 @@ class Pair(Base):
 
     id = Column(Integer, primary_key=True)
     pair_address = Column(String(50))
-    pair_abi = Column(String(3000))
+    pair_abi = Column(Text)
     pair_number = Column(Integer)
 
     profile = relationship('Token', backref='pairs', uselist=False)
@@ -29,7 +29,7 @@ class Token(Base):
     __tablename__ = f'token_{debug}'
 
     id = Column(Integer, primary_key=True)
-    token_name = Column(String(20))
+    token_name = Column(String(50))
     token_address = Column(String(50))
     token_position = Column(Integer)
     
